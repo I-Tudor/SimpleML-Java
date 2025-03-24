@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="10" style="-fx-padding: 15 15 15 15" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainGUIController">
+
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label fx:id="fileLabel" text="No file selected" />
+        <Button onAction="#chooseFile" text="Choose CSV File" />
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Choose classifier:" />
+        <ComboBox fx:id="classifierDropdown" onAction="#onClassifierSelect" />
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label fx:id="kLabel" text="K" visible="false" />
+        <TextField fx:id="kInput" text="15" visible="false" />
+    </HBox>
+
+    <VBox alignment="CENTER_LEFT" spacing="10">
+        <Label fx:id="learningRateLabel" text="Learning Rate" visible="false" />
+        <TextField fx:id="learningRateInput" text="0.01" visible="false" />
+
+        <Label fx:id="epochsLabel" text="Epochs" visible="false" />
+        <TextField fx:id="epochsInput" text="10000" visible="false" />
+    </VBox>
+
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Training percentage:" />
+        <Slider fx:id="splitSlider" majorTickUnit="10" max="90" min="50" minorTickCount="5" showTickLabels="true" showTickMarks="true" value="70" />
+    </HBox>
+    <VBox alignment="CENTER_LEFT" spacing="10">
+        <HBox>
+            <Button onAction="#train" text="Train" />
+            <Button onAction="#load" text="Load" />
+        </HBox>
+
+        <Label fx:id="resultLabel" text="" />
+    </VBox>
+
+    <VBox alignment="CENTER_LEFT" spacing="10">
+        <GridPane hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml" visible="false" fx:id="confusionMatrix">
+
+            <Label text="Confusion Matrix:" underline="true" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
+            <font>
+               <Font size="14.0" />
+            </font></Label>
+
+            <Label text="Predicted Positive" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Predicted Negative" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+
+            <Label text="Actual Positive" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Label text="Actual Negative" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+
+            <Label fx:id="tpLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="fpLabel" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label fx:id="fnLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="tnLabel" text="0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+    </VBox>
+
+    <VBox alignment="CENTER_RIGHT" spacing="10">
+        <Button onAction="#save" text="Save" />
+    </VBox>
+
+</VBox>
