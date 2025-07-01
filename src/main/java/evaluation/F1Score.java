@@ -10,7 +10,7 @@ public class F1Score<F, L> implements EvaluationMeasure<F, L> {
         Precision precision = new Precision();
         double prec = precision.evaluate(instances, predictions);
         Recall recall = new Recall();
-        double rec = prec + recall.evaluate(instances, predictions);
+        double rec = recall.evaluate(instances, predictions);
         return 2 * (prec * rec) / (prec + rec);
     }
 }

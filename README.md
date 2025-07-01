@@ -1,36 +1,30 @@
-# Additional Lab Activity
+# Machine Learning Classifier Framework 
 
-**Bonus (1p)**
+This project is a straightforward machine learning framework built in Java. It provides a platform for training and evaluating several common classification models. The framework features a Graphical User Interface (GUI) built with JavaFX, making it easy to experiment with different algorithms and datasets.
 
-Implement a very simple machine learning library allowing binary classification, in Java, according to the given UML diagram. The library will offer various algorithms for binary classification, allowing the user to choose any of them. All classifiers will provide training and testing capabilities and the library will also offer various evaluation measures to test the performance of the algorithms.
+---
 
-Requirements:
-- Use the concepts and tools we studied this semester: object oriented design, interfaces, inheritance, polymorphism, generics, Java collections, exceptions, I/O Streams and serialisation, functional interfaces, Java 8 streams. For example: 
-	- the data can be read from a file (e.g. CSV) or a database
-	- the trained models can be serialised
-	- interfaces with just one function (e.g. Evaluation Measure) can be functional interfaces
+## Features 
 
-- Implement at least three simple classifiers. Some examples below:
-	- K-Nearest Neighbors (KNN)
-	- The Perceptron
-	- Naive Bayes
-	- Logistic Regression
-	- Decision Tree
-	
-- The diagram contains two examples of evaluation measure. See some other examples below:
-	- True Positives, False Positives, True Negatives, False Negatives
-	- Recall
-	- F1 Score
-	
-- Classifier selection (including setting the values for the corresponding hyperparameters) can be made via an external configuration file or at the beginning of the application.
- 
-- Test the algorithms using the Pima Indians Diabetes dataset (https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database). Use a training and a test set and report the obtained performances. Which is the best classifier for this dataset?
-
-**Bonus (0.5p)**
-
-Build a GUI using JavaFX for your machine learning framework. This should allow:
-- choosing the input file
-- choosing a classifier and values for its hyperparameters
-- choosing the percentages for the train-test split
-- training the classifier
-- displaying test set results, including confusion matrix
+* **Multiple Classification Models**: The framework includes implementations of three popular classification algorithms:
+    * **K-Nearest Neighbors (KNN)**: A simple, instance-based learning algorithm.
+    * **Perceptron**: A single-layer neural network for binary classification.
+    * **Logistic Regression**: A statistical model for predicting binary outcomes.
+* **Comprehensive Model Evaluation**: You can assess the performance of the trained models using a variety of standard metrics:
+    * **Accuracy**: The proportion of correctly classified instances.
+    * **Precision**: The ability of the classifier not to label as positive a sample that is negative.
+    * **Recall (Sensitivity)**: The ability of the classifier to find all the positive samples.
+    * **F1-Score**: The harmonic mean of precision and recall.
+    * **Confusion Matrix**: A detailed breakdown of True Positives, True Negatives, False Positives, and False Negatives.
+* **Interactive GUI**: The JavaFX-based interface allows you to:
+    * Load your dataset from a **CSV file**.
+    * Choose a classifier from a dropdown menu.
+    * Adjust **hyperparameters** such as the value of `k` for KNN, or the `learning rate` and number of `epochs` for Perceptron and Logistic Regression.
+    * Use a slider to easily set the **train-test split** ratio.
+    * **Train** the model and view the evaluation results in real-time.
+    * **Save** your trained models for later use.
+    * **Load** pre-trained models to evaluate them on new data.
+* **Data Handling Utilities**:
+    * Efficiently loads data from CSV files.
+    * Automatically shuffles and splits the dataset.
+    * Includes feature normalization for Perceptron and Logistic Regression to enhance model performance.
